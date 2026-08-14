@@ -120,7 +120,7 @@ with col_map:
         name='Real Earth Satellite',
         overlay=False,
         control=True
-    ).addTo(m)
+    ).add_to(m)
 
     # Add AI Bounding Boxes (Blue = Construction, Green = Canopy)
     lat, lon = loc_data['lat'], loc_data['lon']
@@ -128,13 +128,13 @@ with col_map:
         bounds=[[lat + 0.0003, lon + 0.0003], [lat + 0.0012, lon + 0.0015]],
         color='#38bdf8', weight=3, fill=True, fill_color='#0284c7', fill_opacity=0.4,
         popup='🟦 AI Detected: New Building Construction'
-    ).addTo(m)
+    ).add_to(m)
 
     folium.Rectangle(
         bounds=[[lat - 0.0022, lon - 0.0022], [lat - 0.0005, lon - 0.0005]],
         color='#10b981', weight=2, fill=True, fill_color='#10b981', fill_opacity=0.3,
         popup='🟩 AI Detected: Green Canopy Growth'
-    ).addTo(m)
+    ).add_to(m)
 
     # Render Map in Streamlit
     st_folium(m, width=750, height=450)
